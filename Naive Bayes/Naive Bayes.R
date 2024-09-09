@@ -17,13 +17,11 @@ lapply(mail_corpus, as.character)
 inspect(mail_corpus[1:2])
 
 mail_clean <- tm_map(mail_corpus,removePunctuation)
-inspect(mail_clean[1:2])
-mail_clean <-  tm_map(mail_clean,removeNumbers)
-mail_clean <- tm_map(mail_clean,tolower)
+mail_clean <- tm_map(mail_clean,removeNumbers)
 inspect(mail_clean[1:2])
 mail_clean <- tm_map(mail_clean,removeWords,stopwords())
-inspect(mail_clean[1:2])
 mail_clean <- tm_map(mail_clean,trimws)
+mail_clean <- tm_map(mail_clean,tolower)
 inspect(mail_clean[1:2])
 
 
@@ -38,7 +36,7 @@ mail_Test <- mail_dtm[4170:5572,]
 mail_Train_lab <- mail_Data[1:4169,]$type
 mail_Test_lab <- mail_Data[4170:5572,]$type
 
-
+#WordCloud to check frequency
 library(wordcloud)
 wordcloud(mail_clean,min.freq = 50,
           random.order = F,
@@ -50,3 +48,6 @@ library("e1071")
 model <-  naiveBayes(mail_Train,mail_Test,mail_Train_lab)
 
 help(naiveBayes)
+
+
+#error ----
