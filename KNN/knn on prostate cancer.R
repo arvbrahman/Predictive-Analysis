@@ -19,5 +19,5 @@ prostate_pred <- knn(prostate_train,prostate_test,prostate_data[1:70,1],k=6)
 table(prostate_pred,prostate_data[71:100,1])
 
 #Evaluation
-library(gmodels) #gmodels conatins crosstable
+library(gmodels) #gmodels library contains crosstable
 CrossTable(prostate_data[71:100,1],prostate_pred,prop.chisq = F)
