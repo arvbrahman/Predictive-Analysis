@@ -1,3 +1,9 @@
+#Loading necessary libraries
+library(tm)   #tm: text mining library is used for text cleaning 
+library(caret)
+library(e1071)
+library(dplyr)
+
 #Loading the data
 mail_Data <- read.csv(file = "spam.csv",stringsAsFactors = F)
 
@@ -5,24 +11,21 @@ mail_Data <- read.csv(file = "spam.csv",stringsAsFactors = F)
 str(mail_Data)
 table(mail_Data$type)
 
-#Making categorical variable
+#Removing unnecessary columns &
+#converting label into categorical variable which makes it easy for classification
+mail_Data <- mail_Data[,c("type","text")]
 mail_Data$type <- as.factor(mail_Data$type)
 str(mail_Data)
 
-#Data Cleaning
-library(tm)
-mail_corpus <- iconv(mail_Data$text)
-mail_corpus <- Corpus(VectorSource(mail_corpus))
-lapply(mail_corpus, as.character)
-inspect(mail_corpus[1:2])
 
-mail_clean <- tm_map(mail_corpus,removePunctuation)
-mail_clean <- tm_map(mail_clean,removeNumbers)
-inspect(mail_clean[1:2])
-mail_clean <- tm_map(mail_clean,removeWords,stopwords())
-mail_clean <- tm_map(mail_clean,trimws)
-mail_clean <- tm_map(mail_clean,tolower)
-inspect(mail_clean[1:2])
+#Data Cleaning Or text cleaning in this data set 
+mail_corpus_clean <- iconv(mail_Data$text)%>%
+  Corpus(VectorSource)%>%
+  tm_map(content_transformer(tolower))%>%
+  tm_map(removeNumbers)%>%
+  tm_map(removePunctuation)%>%
+  tm_map(removeWords,stopwords("en"))
+
 
 
 #Stemming
@@ -31,23 +34,4 @@ mail_clean <- tm_map(mail_clean,stemDocument)
 inspect(mail_clean[1:2])
 mail_dtm <- DocumentTermMatrix(mail_clean)
 
-mail_Train <- mail_dtm[1:4169,]
-mail_Test <- mail_dtm[4170:5572,]
-mail_Train_lab <- mail_Data[1:4169,]$type
-mail_Test_lab <- mail_Data[4170:5572,]$type
 
-#WordCloud to check frequency
-library(wordcloud)
-wordcloud(mail_clean,min.freq = 50,
-          random.order = F,
-          colors = brewer.pal(5,"Dark2"))
-
-
-install.packages("e1071")
-library("e1071")
-model <-  naiveBayes(mail_Train,mail_Test,mail_Train_lab)
-
-help(naiveBayes)
-
-
-#error ----
