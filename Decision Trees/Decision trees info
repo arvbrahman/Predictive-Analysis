@@ -1,0 +1,18 @@
+#Uses :- 
+•credit scoring models
+•study of customer behaviour
+•diagnosis of medical conditions
+
+#Cons :- 
+•data with large number of nominal features or large number of numeric features, may result in overly complex trees
+•tendency of overfitting
+
+#Methods for splitting Criteria
+•Gini Impurity
+•Entropy
+•Information Gain
+•Variance Reduction (Regression)
+
+#Types:- 
+•Classification trees :-  used for categorical outcomes
+•Regression tress :- used for continuous outcomes
