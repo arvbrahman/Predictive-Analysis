@@ -18,26 +18,26 @@ target <- Wsales ~ . -Sales
 
 #Training the model 
 
-Tree <- rpart(target,Cs.train,method = "class")
-Model <- tree(target,Cs.train,mindev = 0.01)
+Model <- rpart(target,Cs.train,method = "class")
+Tree <- tree(target,Cs.train,mindev = 0.01)
 
 #Plotting the tree
-rpart.plot(Tree)
-plot(Model)
-text(Model,pretty = 0)
+rpart.plot(Model)
+plot(Tree)
+text(Tree,pretty = 0)
 
 #Predictions
-predictions <- predict(Tree,Cs.test,type = "class")
+predictions <- predict(Model,Cs.test,type = "class")
 predictions
-p<- predict(Model,Cs.test,type = "class")
+p<- predict(Tree,Cs.test,type = "class")
 p
 
 #Pruning ----
 set.seed(2)
-pruned <- cv.tree(Model, FUN = prune.misclass)
+pruned <- cv.tree(Tree, FUN = prune.misclass)
 plot(pruned$size,pruned$dev,type = "b",xlab = "Tree size",ylab = "Deviance")
 
-pruned.tree <- prune.misclass(Model,best = 9)
+pruned.tree <- prune.misclass(Tree,best = 9)
 plot(pruned.tree)
 text(pruned.tree,pretty = 0)
  

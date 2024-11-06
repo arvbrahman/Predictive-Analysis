@@ -1,0 +1,11 @@
+⨨ ANN models the relationship between a set of input signals and an output signal.
+
+⨨ INPUT LAYER          HIDDEN LAYER      OUTPUT LAYER
+
+⨨ The hidden layer generates weights, it is a  blackbox method
+
+⨨ NN works best when the data is scaled
+
+⨨ Library required is neuralnet
+
+⨨ 
