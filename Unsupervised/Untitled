@@ -1,0 +1,20 @@
+clustering and pattern detection
+
+training on unlabeled data
+
+detecting anamalous behaviours, such as unauthorized 
+
+used for knowledge discovery
+
+#Agglomerative (Bottom - up) Clustering
+-> merging clusters into progressively large clusters
+-> Dendrogram is the shape formed
+
+
+#Market Basket Analysis
+Impulse purchases 
+
+@Association rules (if-then)
+building block  - each item that could appear
+itemsets   - frequently bought together sets
+-> helpful for finding the patterns
