@@ -12,7 +12,6 @@ table(possal$Position)
 hist(possal$Level)
 View(possal)
 
-
 #Selecting 2nd and 3rd column
 pos <- possal[2:3]
 

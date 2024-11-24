@@ -18,3 +18,7 @@ Impulse purchases
 building block  - each item that could appear
 itemsets   - frequently bought together sets
 -> helpful for finding the patterns
+
+@Statistical 
+support = ocurrence/total
+confidence(X->Y) = suppOrt(X,Y)/support(X)
