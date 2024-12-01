@@ -1,1 +1,2 @@
 TP+TN/TP+TN+FP+FN = Accuracy
+TP/TP+FP = Precision

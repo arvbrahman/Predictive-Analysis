@@ -40,4 +40,3 @@ plot(pruned$size,pruned$dev,type = "b",xlab = "Tree size",ylab = "Deviance")
 pruned.tree <- prune.misclass(Tree,best = 9)
 plot(pruned.tree)
 text(pruned.tree,pretty = 0)
- 
