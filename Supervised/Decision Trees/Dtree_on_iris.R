@@ -1,5 +1,5 @@
 #Libraries
-library(rpart)
+library(rpart)     
 library(rpart.plot)
 
 #Analyze
@@ -7,12 +7,11 @@ summary(iris)
 str(iris)
 
 #Splitting
-indexes = sample(150,110)
-
+indexes = sample(150,110) 
 iris.train <- iris[indexes,]
 iris.train
 iris.test<- iris[-indexes,]
-iris.test
+iris.test 
   
 #Separate target variable(Dependent variable)
 target = Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width

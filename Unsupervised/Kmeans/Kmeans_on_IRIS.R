@@ -1,13 +1,13 @@
-#Required Packages
-library(ClusterR)
-library(cluster)
+#Required Packages ----
+library(cluster)  #for plotting clusters
+library(ggplot2)  #for plotting clusters
 
-#Working on iris dataset
+#Working on iris dataset ----
 iris
 iris_new <- iris[1:4]      #Removing the 5th column Species
 
 
-#Training the model
+#Training the model ----
 set.seed(123)
 model <- kmeans(iris_new, centers = 3,nstart = 20)
 model
@@ -18,7 +18,7 @@ model$cluster
 cm <- table(iris$Species,model$cluster)
 cm
 
-#Plotting the clusters
+#Plotting the clusters ----
 plot(iris_new$Sepal.Length,iris_new$Sepal.Width,
      col = model$cluster,
      main = "K-means with 3 clusters")
@@ -30,7 +30,7 @@ points(model$centers[,c("Sepal.Length","Sepal.Width")],
        pch = 7, #Symbol
        cex = 3)   #Font size
 
-#Plotting with shaded clusters
+#Plotting with shaded clusters with cluster library ----
 clusplot(iris_new[,c("Sepal.Length","Sepal.Width")],
          model$cluster,
          lines = 1,
@@ -42,3 +42,12 @@ clusplot(iris_new[,c("Sepal.Length","Sepal.Width")],
          main = paste("cluster iris"),
          xlab = 'Sepal.Length',
          ylab = 'Sepal.Width')
+
+
+#plotting clusters with ggplot2 library ----
+iris_new$Cluster <- model$cluster
+
+ggplot(iris_new, aes(x = Sepal.Length, y = Sepal.Width, color = factor(Cluster))) +
+  geom_point() +
+  labs(color = "Cluster") +
+  theme_minimal()

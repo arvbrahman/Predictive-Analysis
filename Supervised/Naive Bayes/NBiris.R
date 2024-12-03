@@ -10,7 +10,7 @@ summary(iris)
 #Splitting the data into training and testing
 set.seed(123)
 spl <- sample.split(iris$Species,SplitRatio = 0.7)
-iris.train <- subset(iris,spl==T)
+iris.train <- subset(iris,spl==T) 
 iris.test <- subset(iris,spl==F)
 
 #Training the  model

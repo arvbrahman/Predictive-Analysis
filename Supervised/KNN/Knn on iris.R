@@ -8,6 +8,7 @@ norm <- function(x){
 
 #standardizing the data
 iris_norm <- as.data.frame(lapply(iris_data[1:4],norm))
+iris.norm <- scale(iris_data[1:4])     #Standardizing through scaling
 
 #splitting into train and test data set
 iris_train <- iris_norm[1:130,]

@@ -1,5 +1,4 @@
 #Libraries Required
-install.packages("neuralnet")
 library(neuralnet)
 
 #Dataset
@@ -25,3 +24,4 @@ plot(Cd.model)   #plotting
 
 #Testing 
 compute(Cd.model,Cd.test[,1:8])
+predict(Cd.model,Cd.test[,1:8])

@@ -1,5 +1,5 @@
 #KNN on prostate cancer----
-prostate_data <- read.csv(file.choose(),stringsAsFactors = F)
+prostate_data <- read.csv(file = "Prostate_cancer.csv",stringsAsFactors = F)
 prostate_data <- prostate_data[,-1]
 
 #Function for normalization
@@ -14,7 +14,7 @@ prostate_train <- prostate_norm[1:70,]
 prostate_test <- prostate_norm[71:100,]
 
 #KNN
-library(class)  #class library conatins knn
+library(class)  #class library contains knn
 prostate_pred <- knn(prostate_train,prostate_test,prostate_data[1:70,1],k=6)
 table(prostate_pred,prostate_data[71:100,1])
 

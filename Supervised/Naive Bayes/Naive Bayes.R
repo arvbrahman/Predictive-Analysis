@@ -63,3 +63,4 @@ predictions <- predict(model,as.matrix(mail_test_data))
 confusionMatrix(predictions,mail_test_labels)
 
 CrossTable(predictions,mail_test_labels,prop.chisq = F)
+

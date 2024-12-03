@@ -1,9 +1,8 @@
 #Libraries required
-library(arules)
+library(arules)    #for apriori
 
 #Reading and loading the data as transactions
 Transactions <- read.transactions(file= "groceries.csv")
-
 
 #Analyzing
 str(Transactions)
@@ -12,12 +11,10 @@ inspect(Transactions[1:10])
 
 #Plotting
 itemFrequency(Transactions[,1:3])
-itemFrequencyPlot(Transactions, support = 0.1)
 itemFrequencyPlot(Transactions, topN = 20)
 
 image(Transactions[1:5])
 image(sample(Transactions,100))
-
 
 #Training the model
 apriori(Transactions)
@@ -30,7 +27,7 @@ summary(Model.rules)
 inspect(Model.rules[1:3])
 inspect(sort(Model.rules, by="lift")[1:5])
 
-#
+#Saving the Association rules in csv format
 berryrules <- subset(Model.rules, items %in% "berries")
 inspect(berryrules)
 

@@ -26,7 +26,6 @@ model
 #Decision Tree
 rpart.plot(model)
 
-
 #
 x_grid <- seq(min(Ps$Level),max(Ps$Level), 0.01)
 ggplot(Ps,aes(Level,Salary))+

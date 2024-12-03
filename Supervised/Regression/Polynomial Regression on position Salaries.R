@@ -29,7 +29,6 @@ pos$Level4 <- pos$Level^4
 poly.model <- lm(Salary ~ . ,pos)
 summary(poly.model)
 
-
 #Visualizing both the models
 ggplot()+
   geom_point(aes(Level,Salary),pos,colour = "green")+

@@ -1,6 +1,6 @@
 #Library
 library(caTools)    #for splitting the data
-library(e1071)
+library(e1071)      #contains both svm and naiveBayes
 
 #working on iris in-built dataset
 i<- iris

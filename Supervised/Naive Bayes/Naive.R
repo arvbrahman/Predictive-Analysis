@@ -66,8 +66,3 @@ CrossTable(sms_test_pred, sms_test_labels,
            prop.chisq = FALSE, prop.t = FALSE,
            dnn = c('predicted', 'actual')) 
 confusionMatrix(sms_test_pred,sms_test_labels)
-
-
-
-#ti | fp
-#fn | tn     accuracy formula

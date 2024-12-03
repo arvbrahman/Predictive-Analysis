@@ -16,17 +16,16 @@ Cs.test <- Carseats[-index,]
 #Separating the target variable ----
 target <- Wsales ~ . -Sales
 
-#Training the model 
-
+#Training the model ----
 Model <- rpart(target,Cs.train,method = "class")
 Tree <- tree(target,Cs.train,mindev = 0.01)
 
-#Plotting the tree
+#Plotting the tree ----
 rpart.plot(Model)
 plot(Tree)
 text(Tree,pretty = 0)
 
-#Predictions
+#Predictions ----
 predictions <- predict(Model,Cs.test,type = "class")
 predictions
 p<- predict(Tree,Cs.test,type = "class")

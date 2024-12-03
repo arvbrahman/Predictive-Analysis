@@ -1,5 +1,4 @@
 #Required Libraries 
-install.packages("kernlab")
 library(kernlab)  
 library(caTools)     #For splitting the data
 
