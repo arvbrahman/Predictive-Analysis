@@ -4,7 +4,6 @@ a<- read.csv(file.choose(), stringsAsFactors = F)
 
 summary(a)
 which(is.na(a$Age))
-which(is.na(a$Fare))
 a[153,"Fare"]
 
 #omitting NA values
@@ -18,7 +17,7 @@ df <- a[keeps]
 
 #omitting the unnecessary variables or columns
 #Scaling(removing the median then dividing by std)
-library(tidyverse)
+library(tidyverse)     #Collection of r packages (tidyr, ggplot2, dplyr, etc.)
 df_scaled <- df %>%
   select(-Sex, -Embarked) %>%
   scale()
@@ -31,17 +30,21 @@ ggplot(df,aes(x=Age))+
 
 ggplot(df,aes(x=Fare))+
   geom_histogram(binwidth = 30, fill = "orange", color = "blue")+
+  labs(title = "Distribution of Fare") +
   theme_linedraw()
 
 #bar plot mostly for categorical variables (Sex,Embarked,Pclass)
 ggplot(df,aes(Sex))+
-  geom_bar(fill = c("pink","blue"),color = "red")
+  geom_bar(fill = c("pink","blue"),color = "red") +
+  theme_linedraw()
 
 ggplot(df,aes(Embarked))+
-  geom_bar(fill = "steelblue")
+  geom_bar(fill = "steelblue") +
+  theme_linedraw()
 
 ggplot(df,aes(Pclass))+
-  geom_bar(fill = "tomato")
+  geom_bar(fill = c("tomato","orange","red")) +
+  theme_linedraw()
 
 #Boxplot for comparisons between continuous variables and categorical variables
 ggplot(df,aes(factor(Pclass),y=Age))+
@@ -51,7 +54,7 @@ ggplot(df,aes(factor(Pclass),y=Age))+
 ggplot(df,aes(factor(Pclass),y=Fare))+
   geom_boxplot(fill = "yellow",color = "tomato")+
   scale_y_continuous(breaks = seq(0,515,by=100))+
-  theme_bw()
+  theme_linedraw()
 
 #Scatter Plots shows relationship between continuous variables
 ggplot(df,aes(Age,Fare,colour = factor(Pclass)))+

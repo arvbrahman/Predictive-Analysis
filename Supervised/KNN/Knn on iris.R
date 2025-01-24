@@ -22,3 +22,7 @@ iris_pred <- knn(iris_train,iris_test,iris_data[1:130,5],k=5)
 table(iris_pred,iris_data[131:150,5])
 library(gmodels)
 CrossTable(iris_data[131:150,5],iris_pred,prop.chisq = F)
+
+#Evaluation
+library(Metrics)
+accuracy(iris_data[131:150,5],iris_pred)
