@@ -10,6 +10,8 @@ used for knowledge discovery
 -> merging clusters into progressively large clusters
 -> Dendrogram is the shape formed
 
+#Divisive (Top - Bottom) Clustering
+
 
 #Market Basket Analysis
 Impulse purchases 
