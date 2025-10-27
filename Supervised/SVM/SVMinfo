@@ -1,5 +1,6 @@
 > Support Vector Machine
 
 > It classifies the data by finding the hyperplane that maximizes the distance between the groups.
+wx + b = 0
 
 > Dependent variable has to be of factor or integer type for classification mode.
