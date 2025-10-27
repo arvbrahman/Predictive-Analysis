@@ -1,1 +1,7 @@
+Linear Regression -> It assumes that there is a linear relationship between the input and output, meaning the output changes at a constant rate as the input changes
+Linear ==> y=mx+c
+
+Logistic Regression ->  It is used for binary classification where the output can be one of two possible categories
+sigmoid function ==>  σ(z)= 1 /1+e^-z
+​
 
